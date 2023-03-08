@@ -15,7 +15,7 @@ namespace _003_print2values
 
       //Console.WriteLine(v1, v2);
       Console.WriteLine("v1 = " + v1 + ", v2 = " + v2);
-      Console.WriteLine("v1 = {0}, v2 = {1}", v1, v2);
+      Console.WriteLine("v1 = {0:#.##}, v2 = {1:#.##}", v1, v2);
       Console.WriteLine($"v1 = {v1}, v2 = {v2}");
     }
   }
