@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "006_basicControls", "006_ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "007_MessageBoxes", "007_MessageBoxes\007_MessageBoxes.csproj", "{8D536865-6703-4145-B2DE-7116CEBB74FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "008_label", "008_label\008_label.csproj", "{3F078BFA-F3A0-442E-A4A3-A379739E614A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "009_checkBox", "009_checkBox\009_checkBox.csproj", "{4EDD966E-0488-405C-9E53-95C88EEA1DBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{8D536865-6703-4145-B2DE-7116CEBB74FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D536865-6703-4145-B2DE-7116CEBB74FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D536865-6703-4145-B2DE-7116CEBB74FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F078BFA-F3A0-442E-A4A3-A379739E614A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F078BFA-F3A0-442E-A4A3-A379739E614A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F078BFA-F3A0-442E-A4A3-A379739E614A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F078BFA-F3A0-442E-A4A3-A379739E614A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EDD966E-0488-405C-9E53-95C88EEA1DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EDD966E-0488-405C-9E53-95C88EEA1DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EDD966E-0488-405C-9E53-95C88EEA1DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EDD966E-0488-405C-9E53-95C88EEA1DBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
