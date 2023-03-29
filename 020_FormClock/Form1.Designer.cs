@@ -29,9 +29,13 @@
     private void InitializeComponent()
     {
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.아날로그ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.디지털ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.끝내기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.옵션ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.종료ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.panel1 = new System.Windows.Forms.Panel();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -39,52 +43,79 @@
       // menuStrip1
       // 
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.아날로그ToolStripMenuItem,
-            this.디지털ToolStripMenuItem,
-            this.끝내기ToolStripMenuItem});
+            this.보기ToolStripMenuItem,
+            this.옵션ToolStripMenuItem,
+            this.종료ToolStripMenuItem1});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(307, 24);
+      this.menuStrip1.Size = new System.Drawing.Size(566, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
+      // 
+      // 보기ToolStripMenuItem
+      // 
+      this.보기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.아날로그ToolStripMenuItem,
+            this.디지털ToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.종료ToolStripMenuItem});
+      this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
+      this.보기ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+      this.보기ToolStripMenuItem.Text = "보기";
       // 
       // 아날로그ToolStripMenuItem
       // 
       this.아날로그ToolStripMenuItem.Name = "아날로그ToolStripMenuItem";
-      this.아날로그ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+      this.아날로그ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.아날로그ToolStripMenuItem.Text = "아날로그";
       // 
       // 디지털ToolStripMenuItem
       // 
       this.디지털ToolStripMenuItem.Name = "디지털ToolStripMenuItem";
-      this.디지털ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+      this.디지털ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.디지털ToolStripMenuItem.Text = "디지털";
       // 
-      // 끝내기ToolStripMenuItem
+      // toolStripSeparator1
       // 
-      this.끝내기ToolStripMenuItem.Name = "끝내기ToolStripMenuItem";
-      this.끝내기ToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-      this.끝내기ToolStripMenuItem.Text = "끝내기";
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+      // 
+      // 종료ToolStripMenuItem
+      // 
+      this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
+      this.종료ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.종료ToolStripMenuItem.Text = "종료";
+      // 
+      // 옵션ToolStripMenuItem
+      // 
+      this.옵션ToolStripMenuItem.Name = "옵션ToolStripMenuItem";
+      this.옵션ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+      this.옵션ToolStripMenuItem.Text = "옵션";
+      // 
+      // 종료ToolStripMenuItem1
+      // 
+      this.종료ToolStripMenuItem1.Name = "종료ToolStripMenuItem1";
+      this.종료ToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
+      this.종료ToolStripMenuItem1.Text = "종료";
       // 
       // panel1
       // 
       this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel1.Location = new System.Drawing.Point(0, 24);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(307, 344);
+      this.panel1.Size = new System.Drawing.Size(566, 426);
       this.panel1.TabIndex = 1;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(307, 368);
+      this.ClientSize = new System.Drawing.Size(566, 450);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "Form1";
       this.Text = "Form1";
-      this.Load += new System.EventHandler(this.Form1_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
@@ -95,9 +126,13 @@
     #endregion
 
     private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem 보기ToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem 아날로그ToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem 디지털ToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem 끝내기ToolStripMenuItem;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem 옵션ToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem1;
     private System.Windows.Forms.Panel panel1;
   }
 }

@@ -12,114 +12,114 @@ namespace _020_FormClock
 {
   public partial class Form1 : Form
   {
-    // 이 클래스의 변수(필드)
+    // 필드를 만든다
     private Graphics g;
     private bool aClockFlag = true;
-    private Point center; // 중심점
-    private double radius;  // 반지름
+    private Point center;   // 중심점
+    private int radius;     // 반지름
     private int hourHand;   // 시침의 길이
-    private int minHand;    // 분침의 길이
-    private int secHand;    // 초침의 길이
+    private int minHand;    // 분침
+    private int secHand;    // 초침
 
-    const int clientSize = 300; // 상수로 클리이언트 크기를 지정
-    const int clockSize = 200;  // 시계의 크기
-
+    private const int clientSize = 450; // 클라이언트 사이즈
+    private const int clockSize = 350; // 시계 사이즈
     public Form1()
     {
       InitializeComponent();
-      this.Text = "Form Clock";
-      panel1.BackColor = Color.WhiteSmoke;
 
-      this.ClientSize = new Size(clientSize, 
-        clientSize+menuStrip1.Height);
+      this.Text = "Form Clock by bikang";
+      panel1.BackColor = Color.White;
+      this.ClientSize 
+        = new Size(clientSize, 
+              clientSize + menuStrip1.Height); 
 
-      // 그래픽스 객체를 만든다
       g = panel1.CreateGraphics();
 
       aClockSetting();
       TimerSetting();
     }
 
+    // 아날로그 시계 세팅
     private void aClockSetting()
     {
       center = new Point(clientSize/2, clientSize/2);
-      radius = clockSize/2;
-      hourHand = (int)(radius*0.45);
-      minHand = (int)(radius * 0.55);
-      secHand = (int)(radius * 0.65);
+      radius = clockSize / 2;
+
+      hourHand = (int)(radius * 0.5);
+      minHand = (int)(radius * 0.7);
+      secHand = (int)(radius * 0.85);
     }
 
     private void TimerSetting()
     {
-      Timer timer = new Timer();
-      timer.Interval = 1000;
-      timer.Tick += Timer_Tick;
-      timer.Start();
+      Timer t = new Timer();
+      t.Interval = 1000;
+      t.Tick += T_Tick;
+      t.Start();  // t.Enable = true;
     }
 
-    // 현재 시간을 읽어와서, 시계를 그린다
-    private void Timer_Tick(object sender, EventArgs e)
+    // 1초에 한번씩 시계를 그려준다
+    private void T_Tick(object sender, EventArgs e)
     {
-      DateTime c = DateTime.Now;
-
       panel1.Refresh();
+      DateTime c = DateTime.Now;  // 현재시간
 
-      if(aClockFlag == true) // 아날로그
+      if(aClockFlag == true)  // 아날로그 시계
       {
-        DrawClockFace();  // 시계판
+        // 시계판
+        DrawClockFace();
 
-        // 시계바늘을 그린다.(핵심, 각도를 계산)
-        double radHr = (c.Hour % 12 + c.Minute / 60) * 30
-          * Math.PI / 180; // 시간당 30도
-        double radMin = (c.Minute + c.Second / 60) * 6
-          * Math.PI / 180; // 분당 6도
-        double radSec = c.Second * 6 * Math.PI / 180; //초당 6도
+        // 시계바늘의 각도를 라디안으로 표현
+        double radHr = (c.Hour % 12 + c.Minute / 60.0) * 30 * Math.PI/180;
+        double radMin = (c.Minute + c.Second / 60.0) * 6 * Math.PI / 180;
+        double radSec = c.Second * 6 * Math.PI / 180;
 
         DrawHands(radHr, radMin, radSec);
-      }
-      else // 디지털시계
-      {
 
+        // 시계배꼽
+        int coreSize = 32;
+        Rectangle r = new Rectangle(center.X - coreSize/2, 
+          center.Y - coreSize/2, 
+          coreSize, coreSize);
+        g.FillEllipse(Brushes.Gold, r);
+        g.DrawEllipse(new Pen(Brushes.Green, 5), r);
       }
     }
 
-    // 각도를 받아서 시계바늘 그리는 메소드
+    // 각도를 받아서 시계바늘을 그리는 메소드
     private void DrawHands(double radHr, double radMin, double radSec)
     {
-      DrawLine(0, 0, (int)(hourHand*Math.Sin(radHr)),
-        (int)(hourHand *Math.Cos(radHr)), Brushes.RoyalBlue, 8);
-      DrawLine(0,0, (int)(minHand * Math.Sin(radMin)),
-        (int)(minHand * Math.Cos(radMin)), Brushes.SkyBlue, 6);
-      DrawLine(0, 0, (int)(secHand * Math.Sin(radSec)),
-        (int)(secHand * Math.Cos(radSec)), Brushes.OrangeRed, 4);
-
-      // 배꼽
-      int coreSize = 16;
-      Rectangle r = new Rectangle(
-        center.X - coreSize/2, center.Y - coreSize/2,
-        coreSize, coreSize);
-      g.FillEllipse(Brushes.Gold, r);
-      g.DrawEllipse(new Pen(Brushes.Green, 3), r);
+      DrawLine((int)(hourHand * Math.Sin(radHr)), 
+        (int)(hourHand * Math.Cos(radHr)), Brushes.RoyalBlue, 14);
+      DrawLine((int)(minHand * Math.Sin(radMin)),
+        (int)(minHand * Math.Cos(radMin)), Brushes.SkyBlue, 9);
+      DrawLine((int)(secHand * Math.Sin(radSec)),
+        (int)(secHand * Math.Cos(radSec)), Brushes.OrangeRed, 5);
     }
 
-    private void DrawLine(int x1, int y1, int x2, int y2, Brush brush, int thick)
+    private void DrawLine(int x, int y, Brush b, int t)
     {
-      Pen p = new Pen(brush, thick);
+      Pen p = new Pen(b, t);
       p.EndCap = System.Drawing.Drawing2D.LineCap.Round;
-      g.DrawLine(p, center.X + x1, center.Y + y1, 
-        center.X + x2, center.Y - y2);
+      g.DrawLine(p, center.X, center.Y, center.X + x, center.Y - y);
     }
 
     private void DrawClockFace()
     {
-      Pen p = new Pen(Color.LightSteelBlue, 30);
-      g.DrawEllipse(p, center.X-clockSize/2,
-        center.Y-clockSize/2, clockSize, clockSize);
-    }
+      Pen p = new Pen(Color.LightSteelBlue, 40);
+      g.DrawEllipse(p, center.X - clockSize/2, center.Y - clockSize/2,
+        clockSize, clockSize);
 
-    private void Form1_Load(object sender, EventArgs e)
-    {
-
+      // 시간위치 표시
+      int dotSize = 12;
+      for(int i = 0; i<360; i+=30)
+      {
+        int x = (int)(center.X + radius * Math.Sin(i * Math.PI / 180)
+          -dotSize/2);
+        int y = (int)(center.Y - radius * Math.Cos(i * Math.PI / 180)
+          -dotSize/2);
+        g.FillEllipse(Brushes.AliceBlue, x, y, dotSize, dotSize);
+      }
     }
   }
 }
