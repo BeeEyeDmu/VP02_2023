@@ -164,18 +164,23 @@ namespace _021_Firebase
     private async void export()
     {
       dt.Rows.Clear();
+
       int i = 0;
       FirebaseResponse response =
-        await client.GetAsync("Counter/nPhones");
+        await client.GetAsync("VP02_Counter/nPhones");
       Counter obj = response.ResultAs<Counter>();
       int cnt = obj.cnt;
-
+      MessageBox.Show(cnt.ToString());
       while(i != cnt)
       {
         i++;
         FirebaseResponse r 
           = await client.GetAsync("VP02_Phonebook/" + i);
+
         Data d = r.ResultAs<Data>();
+
+        if (d == null)  // 중간에 삭제된 데이터가 있을 수 있으므로
+          continue;
 
         DataRow row = dt.NewRow();
         row["Id"] = d.Id;
