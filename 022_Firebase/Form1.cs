@@ -164,32 +164,41 @@ namespace _021_Firebase
     private async void export()
     {
       dt.Rows.Clear();
-
       int i = 0;
       FirebaseResponse response =
         await client.GetAsync("VP02_Counter/nPhones");
       Counter obj = response.ResultAs<Counter>();
       int cnt = obj.cnt;
-      MessageBox.Show(cnt.ToString());
+
       while(i != cnt)
       {
         i++;
         FirebaseResponse r 
           = await client.GetAsync("VP02_Phonebook/" + i);
-
         Data d = r.ResultAs<Data>();
 
-        if (d == null)  // 중간에 삭제된 데이터가 있을 수 있으므로
-          continue;
+        if (d != null)
+        {
+          DataRow row = dt.NewRow();
+          row["Id"] = d.Id;
+          row["학번"] = d.SId;
+          row["이름"] = d.Name;
+          row["전화번호"] = d.Phone;
 
-        DataRow row = dt.NewRow();
-        row["Id"] = d.Id;
-        row["학번"] = d.SId;
-        row["이름"] = d.Name;
-        row["전화번호"] = d.Phone;
-
-        dt.Rows.Add(row);
+          dt.Rows.Add(row);
+        }
       }
+    }
+
+    private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+      DataGridView dgv = (DataGridView)sender;
+
+      txtId.Text = dgv.Rows[e.RowIndex].Cells[0].Value.ToString();
+      txtSId.Text = dgv.Rows[e.RowIndex].Cells[1].Value.ToString();
+      txtName.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+      txtPhone.Text = dgv.Rows[e.RowIndex].Cells[3].Value.ToString();
+
     }
   }
 }
