@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "021_Firebase", "021_Firebas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "022_Firebase", "022_Firebase\022_Firebase.csproj", "{346AF9EB-913A-47AF-BF4F-6E6E17913FAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "023_TwoForms", "023_TwoForms\023_TwoForms.csproj", "{5A5B5041-E5FD-442D-88AB-8E00C2F751D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{346AF9EB-913A-47AF-BF4F-6E6E17913FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{346AF9EB-913A-47AF-BF4F-6E6E17913FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{346AF9EB-913A-47AF-BF4F-6E6E17913FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5B5041-E5FD-442D-88AB-8E00C2F751D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5B5041-E5FD-442D-88AB-8E00C2F751D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5B5041-E5FD-442D-88AB-8E00C2F751D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5B5041-E5FD-442D-88AB-8E00C2F751D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
